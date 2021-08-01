@@ -23,6 +23,8 @@ void draw() {
   
   int part=floor(width/n);
   
+  stroke(floor((255/100)*n));
+  
   for( int y=0; y<height; y+=part ) {
     for( int x=0; x<width; x+=part ) {
       rect( x,y,part,part );      
@@ -30,16 +32,18 @@ void draw() {
   }
   
   fill(0);
+  int nr=0;
   for( int s : squares ) {    
-      int x=s%n;
+      int x=(s%n);
       int y=(s-x)/n;
       
       int sx=x*part;
       int sy=y*part;
       
       rect( sx, sy, part, part );
+      nr++;
   }
-  
+    
   saveFrame("squares-######.png"); 
 }
       
